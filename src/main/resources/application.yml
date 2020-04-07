@@ -1,0 +1,18 @@
+server:
+  port: 8010
+    # tomcat设置
+  tomcat:
+    # 开启日志访问
+    max-threads: 1000
+    min-spare-threads: 500
+    uri-encoding: UTF-8
+    basedir: ./
+spring:
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+  servlet:
+    multipart:
+      max-file-size: 1024MB
+      max-request-size: 1024MB
