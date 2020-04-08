@@ -1,7 +1,7 @@
 package com.winter.etutor.user;
 
 import com.alibaba.fastjson.JSON;
-import com.winter.etutor.bean.UserInfoDO;
+import com.winter.etutor.bean.user.entity.UserInfoDO;
 import org.junit.Test;
 
 public class JavaCodeTest {

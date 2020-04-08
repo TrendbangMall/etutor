@@ -1,7 +1,7 @@
 package com.winter.etutor.controller.user;
 
 import com.winter.etutor.bean.BaseResult;
-import com.winter.etutor.bean.UserInfoDO;
+import com.winter.etutor.bean.user.entity.UserInfoDO;
 import com.winter.etutor.service.user.UserInfoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

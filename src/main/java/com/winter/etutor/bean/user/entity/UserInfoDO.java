@@ -1,4 +1,4 @@
-package com.winter.etutor.bean;
+package com.winter.etutor.bean.user.entity;
 
 import lombok.Data;
 
@@ -19,7 +19,7 @@ public class UserInfoDO {
 	/**
 	* 主键
  	*/
-	private Long id;
+	private long id;
 	
 	/**
 	* 名称
@@ -34,12 +34,12 @@ public class UserInfoDO {
 	/**
 	* 1 男, 2女
  	*/
-	private Integer sex;
+	private int sex;
 	
 	/**
 	* 年龄
  	*/
-	private Integer age;
+	private int age;
 	
 	/**
 	* 新增时间
@@ -59,6 +59,10 @@ public class UserInfoDO {
 	/**
 	* 爆料值
  	*/
-	private Integer breakingValue;
-	
+	private int breakingValue;
+
+	/**
+	 * 手机号
+	 */
+	private int phone;
 }

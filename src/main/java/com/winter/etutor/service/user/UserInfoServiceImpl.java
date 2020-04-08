@@ -1,6 +1,6 @@
 package com.winter.etutor.service.user;
 
-import com.winter.etutor.bean.UserInfoDO;
+import com.winter.etutor.bean.user.entity.UserInfoDO;
 import com.winter.etutor.dao.user.UserInfoDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
