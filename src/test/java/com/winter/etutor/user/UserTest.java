@@ -1,7 +1,7 @@
 package com.winter.etutor.user;
 
 import com.winter.etutor.EtutorApplication;
-import com.winter.etutor.bean.UserInfoDO;
+import com.winter.etutor.bean.user.entity.UserInfoDO;
 import com.winter.etutor.service.user.UserInfoService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

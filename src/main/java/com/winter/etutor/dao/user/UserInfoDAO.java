@@ -1,6 +1,6 @@
 package com.winter.etutor.dao.user;
 
-import com.winter.etutor.bean.UserInfoDO;
+import com.winter.etutor.bean.user.entity.UserInfoDO;
 import net.paoding.rose.jade.annotation.DAO;
 import net.paoding.rose.jade.annotation.ReturnGeneratedKeys;
 import net.paoding.rose.jade.annotation.SQL;
