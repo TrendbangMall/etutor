@@ -18,18 +18,18 @@ public interface UserInfoDAO {
 
     String TABLE_NAME = " user_info ";
 
-    String SELECT_COLUMNS = "   name,  nickname,  sex,  age,  add_time,  update_time,  icon,  breaking_value ";
+    String SELECT_COLUMNS = "   name,  nickname,  sex,  age,  add_time,  update_time,  icon,  breaking_value, phone ";
 
     String ALL_COLUMNS = " id, " + SELECT_COLUMNS;
 
-    String JOIN_COLUMNS = " ui.id,  ui.name,  ui.nickname,  ui.sex,  ui.age,  ui.add_time,  ui.update_time,  ui.icon,  ui.breaking_value ";
+    String JOIN_COLUMNS = " ui.id,  ui.name,  ui.nickname,  ui.sex,  ui.age,  ui.add_time,  ui.update_time,  ui.icon,  ui.breaking_value, ui.phone ";
 
-    @ReturnGeneratedKeys
     @SQL("insert into " + TABLE_NAME + "(" + SELECT_COLUMNS + ") " +
-            " VALUES(:1.name, :1.nickname, :1.sex, :1.age,  now() ,  now() , :1.icon, :1.breakingValue )")
+            " VALUES(:1.name, :1.nickname, :1.sex, :1.age,  now() ,  now() , :1.icon, :1.breakingValue, :1.phone )")
+    @ReturnGeneratedKeys
     long insertUserInfoDO(UserInfoDO userInfoDO);
 
-    @SQL("update " + TABLE_NAME + " set name=:1.name, nickname=:1.nickname, sex=:1.sex, age=:1.age, update_time= now() , icon=:1.icon, breaking_value=:1.breakingValue" +
+    @SQL("update " + TABLE_NAME + " set name=:1.name, nickname=:1.nickname, sex=:1.sex, age=:1.age, update_time= now() , icon=:1.icon, breaking_value=:1.breakingValue, phone=:1.phone" +
             " where id = :1.id")
     int updateUserInfo(UserInfoDO userInfoDO);
 

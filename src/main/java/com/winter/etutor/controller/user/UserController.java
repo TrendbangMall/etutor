@@ -29,8 +29,8 @@ public class UserController {
      */
     @RequestMapping("/register")
     public BaseResult insertUserService(@RequestBody UserInfoDO userInfoDO) {
-        long rowCount = userInfoService.insertUser(userInfoDO);
-        if (rowCount > 0) {
+        long id = userInfoService.insertUser(userInfoDO);
+        if (id > 0) {
             return BaseResult.createSuccess("保存成功" );
         } else {
             return BaseResult.createFailure("保存失败");
