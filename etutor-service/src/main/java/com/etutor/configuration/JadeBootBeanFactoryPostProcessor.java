@@ -1,6 +1,7 @@
 package com.etutor.configuration;
 
 import net.paoding.rose.jade.context.spring.JadeBeanFactoryPostProcessor;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -8,4 +9,5 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class JadeBootBeanFactoryPostProcessor extends JadeBeanFactoryPostProcessor {
+
 }
