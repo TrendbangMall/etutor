@@ -49,11 +49,6 @@
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %X{traceId} [%thread] %-5level %logger{50}:%L - %msg%n</pattern>
             <charset>UTF-8</charset>
         </encoder>
-        <!--<filter class="ch.qos.logback.classic.filter.LevelFilter">-->
-        <!--<level>DEBUG</level>-->
-        <!--<onMatch>ACCEPT</onMatch>-->
-        <!--<onMismatch>DENY</onMismatch>-->
-        <!--</filter>-->
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>DEBUG</level>
         </filter>
@@ -134,10 +129,6 @@
         </rollingPolicy>
     </appender>
 
-    <logger name="cn.techwolf.trace.utils.SpanLogger" additivity="false">
-        <level value="INFO"/>
-        <appender-ref ref="async-trace"/>
-    </logger>
 
     <logger name="com.winter.etutor" additivity="false">
         <level value="INFO"/>
