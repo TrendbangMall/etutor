@@ -13,4 +13,11 @@ public interface UserInfoService {
      * @return
      */
     long insertUser(UserInfoDO userInfoDO);
+
+    /**
+     * 通过Id获取用户
+     * @param id
+     * @return
+     */
+    UserInfoDO getUserInfoById(long id);
 }
