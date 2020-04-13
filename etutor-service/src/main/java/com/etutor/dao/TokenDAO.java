@@ -10,9 +10,9 @@ public interface TokenDAO {
 
     String TABLE_NAME = " token_record ";
 
-    String ALL_COLUMNS = " id,  token,  user_id,  team_id,  staff_id,  expr_time,  add_time,  update_time, status ";
+    String ALL_COLUMNS = " id,  token,  user_id,  expr_time,  add_time,  update_time, status ";
 
-    String INSERT_COLUMNS = " token,  user_id,  team_id,  staff_id,  expr_time,  add_time,  update_time ";
+    String INSERT_COLUMNS = " token,  user_id,  expr_time,  add_time,  update_time ";
 
 
     /**
@@ -49,7 +49,7 @@ public interface TokenDAO {
      * @return
      */
     @ReturnGeneratedKeys
-    @SQL("insert into " + TABLE_NAME + " ( " + INSERT_COLUMNS + " ) values (:1.token, :1.userId, :1.teamId, :1.staffId, :1.exprTime, now(), now())")
+    @SQL("insert into " + TABLE_NAME + " ( " + INSERT_COLUMNS + " ) values (:1.token, :1.userId, :1.exprTime, now(), now())")
     Long insertToken(TokenDO tokenDO);
 
     /**

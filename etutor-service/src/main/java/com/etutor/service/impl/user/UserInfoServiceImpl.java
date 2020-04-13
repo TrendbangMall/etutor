@@ -40,7 +40,6 @@ public class UserInfoServiceImpl implements UserInfoService {
 //        }
         UserInfoDO checkDO = userInfoDAO.getUserByPhone(userDTO.getPhone());
         if (checkDO == null) {
-            // 没注册：先注册, 再提醒进入团队创建页面。
             UserInfoDO userDO = DozerUtils.map(mapper, userDTO, UserInfoDO.class);
             userDO.setPhone(userDTO.getPhone());
             long userId = userInfoDAO.insertUserInfoDO(userDO);
@@ -90,7 +89,7 @@ public class UserInfoServiceImpl implements UserInfoService {
         tokenDO.setUserId(userId);
         tokenDO.setUpdateTime(new Date());
         tokenDO.setAddTime(new Date());
-        tokenService.updateToken(tokenDO);
+        boolean b = tokenService.updateToken(tokenDO);
         // 重新登录,每次都要将旧的token置为失效, 再新增一条新的数据
         tokenService.addToken(tokenDO);
         return token;

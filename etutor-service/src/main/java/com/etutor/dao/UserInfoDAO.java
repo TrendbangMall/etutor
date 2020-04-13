@@ -39,5 +39,6 @@ public interface UserInfoDAO {
     @SQL("select " + ALL_COLUMNS + " from " + TABLE_NAME + " where id in (:1)")
     List<UserInfoDO> getUserInfoDOListByIds(List<Long> ids);
 
+    @SQL("select " + ALL_COLUMNS + " from " + TABLE_NAME + " where phone = :1")
     UserInfoDO getUserByPhone(String phone);
 }

@@ -1,5 +1,7 @@
 package com.etutor.controller.user;
 
+import com.etutor.annotation.LoginCheck;
+import com.etutor.constant.LoginConstant;
 import com.etutor.model.dto.UserDTO;
 import com.etutor.model.entity.UserInfoDO;
 import com.etutor.service.UserInfoService;
@@ -21,6 +23,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/user")
 @Slf4j
+@LoginCheck(LoginConstant.UN_CHECK)
 public class UserController {
 
     @Autowired
@@ -41,7 +44,6 @@ public class UserController {
             return Result.failed("保存失败");
         }
     }
-
 
     /**
      * 手机登录
