@@ -1,9 +1,10 @@
 package com.etutor.service.impl.user;
 
 import com.etutor.dao.UserInfoDAO;
-import com.etutor.dto.UserDTO;
+import com.etutor.model.dto.UserDTO;
 import com.etutor.model.entity.TokenDO;
 import com.etutor.model.entity.UserInfoDO;
+import com.etutor.model.vo.UserInfoVO;
 import com.etutor.service.TokenService;
 import com.etutor.service.UserInfoService;
 import com.etutor.utils.DozerUtils;
@@ -45,13 +46,6 @@ public class UserInfoServiceImpl implements UserInfoService {
             long userId = userInfoDAO.insertUserInfoDO(userDO);
             return createToken(userId);
         } else {
-            /*// 检查有没有团队, 已注册,进入团队创建页面
-            if (orgTeamService.getList(userDTO.getPhone()).size() == 0) {
-                return null;
-            } else {
-                // 已注册,有团队：进入团队选择页面。 获取token
-                return createToken(-1L, checkDO.getId());
-            }*/
             return createToken(checkDO.getId());
         }
     }
@@ -68,13 +62,20 @@ public class UserInfoServiceImpl implements UserInfoService {
 //        if (!checkSmsCode(code, phone)) {
 //            throw new BusinessException(12, "验证码错误");
 //        }
-        // 初次登录, 需要引导到注册的功能
         UserInfoDO checkDO = userInfoDAO.getUserByPhone(userDTO.getPhone());
         if (checkDO == null) {
             return null;
         } else {
             return createToken(checkDO.getId());
         }
+    }
+
+    @Override
+    public UserInfoVO getUserInfoByToken(String token) {
+        TokenDO tokenDO = tokenService.getToken(token);
+        UserInfoDO userInfoDO = userInfoDAO.getUserInfoDOById(tokenDO.getUserId());
+        UserInfoVO userInfoVO = DozerUtils.map(mapper, userInfoDO, UserInfoVO.class);
+        return userInfoVO;
     }
 
     @Override

@@ -1,12 +1,10 @@
 package com.etutor.controller.user;
 
-import com.etutor.dto.UserDTO;
+import com.etutor.model.dto.UserDTO;
 import com.etutor.model.entity.UserInfoDO;
-import com.etutor.response.ResultCode;
 import com.etutor.service.UserInfoService;
 import com.etutor.response.Result;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.collections.MapUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

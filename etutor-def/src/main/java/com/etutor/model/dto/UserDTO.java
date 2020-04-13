@@ -1,29 +1,21 @@
-package com.etutor.dto;
+package com.etutor.model.dto;
 
 import lombok.Data;
 
-
 /**
- * 用户
- * @author Winter
+ * @author winter
  */
 @Data
-public class UserInfoDTO {
+public class UserDTO{
 
     /**
      * 手机号
      */
     private String phone;
-
     /**
      * 昵称
      */
     private String name;
-
-    /**
-     * 密码
-     */
-    private String password;
     /**
      * 用户Id
      */
