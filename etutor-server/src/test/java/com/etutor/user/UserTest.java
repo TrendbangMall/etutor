@@ -1,8 +1,7 @@
 package com.etutor.user;
 
 import com.etutor.EtutorServerApplicationTests;
-import com.etutor.model.UserInfoDO;
-import com.etutor.model.service.UserInfoService;
+import com.etutor.service.UserInfoService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 

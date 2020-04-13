@@ -1,4 +1,4 @@
-package com.etutor.model;
+package com.etutor.model.entity;
 
 import lombok.Data;
 

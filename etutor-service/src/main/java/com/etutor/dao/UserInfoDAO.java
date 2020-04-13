@@ -1,6 +1,6 @@
 package com.etutor.dao;
 
-import com.etutor.model.UserInfoDO;
+import com.etutor.model.entity.UserInfoDO;
 import net.paoding.rose.jade.annotation.DAO;
 import net.paoding.rose.jade.annotation.ReturnGeneratedKeys;
 import net.paoding.rose.jade.annotation.SQL;

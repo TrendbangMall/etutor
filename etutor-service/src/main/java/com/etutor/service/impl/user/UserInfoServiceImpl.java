@@ -1,8 +1,9 @@
 package com.etutor.service.impl.user;
 
 import com.etutor.dao.UserInfoDAO;
-import com.etutor.model.UserInfoDO;
-import com.etutor.model.service.UserInfoService;
+import com.etutor.dto.UserInfoDTO;
+import com.etutor.model.entity.UserInfoDO;
+import com.etutor.service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,16 @@ public class UserInfoServiceImpl implements UserInfoService {
     @Override
     public UserInfoDO getUserInfoById(long id) {
         return userInfoDAO.getUserInfoDOById(id);
+    }
+
+    @Override
+    public String registerByPhone(UserInfoDTO userInfoDTO) {
+        return null;
+    }
+
+    @Override
+    public String loginByPhone(UserInfoDTO userInfoDTO) {
+        return null;
     }
 
 }

@@ -1,7 +1,7 @@
 package com.etutor.controller.user;
 
-import com.etutor.model.UserInfoDO;
-import com.etutor.model.service.UserInfoService;
+import com.etutor.model.entity.UserInfoDO;
+import com.etutor.service.UserInfoService;
 import com.etutor.response.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,4 +42,6 @@ public class UserController {
         UserInfoDO userInfoDO = userInfoService.getUserInfoById(id);
         return Result.success(userInfoDO);
     }
+
+
 }
