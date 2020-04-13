@@ -1,4 +1,4 @@
-package com.etutor.model;
+package com.etutor.model.entity;
 
 import lombok.Data;
 
@@ -63,5 +63,5 @@ public class UserInfoDO {
 	/**
 	 * 手机号
 	 */
-	private int phone;
+	private String phone;
 }

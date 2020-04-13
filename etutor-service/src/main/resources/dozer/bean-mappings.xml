@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozermapper.github.io/schema/bean-mapping"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://dozermapper.github.io/schema/bean-mapping http://dozermapper.github.io/schema/bean-mapping.xsd">
+
+    <configuration>
+        <stop-on-errors>true</stop-on-errors>
+        <date-format>yyyy-MM-dd HH:mm:ss</date-format>
+    </configuration>
+
+    <mapping>
+        <class-a>com.zhipin.organization.model.OrgClassDO</class-a>
+        <class-b>com.zhipin.organization.vo.OrgClassVO</class-b>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>teamId</a>
+            <b>teamId</b>
+        </field>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>parentClassId</a>
+            <b>parentClassId</b>
+        </field>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>reportStaffId</a>
+            <b>reportStaffId</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>com.zhipin.organization.vo.OrgClassVO</class-a>
+        <class-b>com.zhipin.organization.model.ClassExportDO</class-b>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>teamId</a>
+            <b>teamId</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>com.zhipin.organization.model.UserDO</class-a>
+        <class-b>com.zhipin.organization.vo.UserVO</class-b>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>id</a>
+            <b>id</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>com.zhipin.organization.model.OrgTeamDO</class-a>
+        <class-b>com.zhipin.organization.vo.OrgTeamVO</class-b>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>id</a>
+            <b>id</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>com.zhipin.organization.model.OrgClassDO</class-a>
+        <class-b>com.zhipin.organization.model.dto.OrgClassDTO</class-b>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>teamId</a>
+            <b>teamId</b>
+        </field>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>parentClassId</a>
+            <b>parentClassId</b>
+        </field>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>reportStaffId</a>
+            <b>reportStaffId</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>com.zhipin.organization.model.UserDO</class-a>
+        <class-b>com.zhipin.organization.model.dto.UserDTO</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>com.zhipin.organization.model.OrgRoleGroupDO</class-a>
+        <class-b>com.zhipin.organization.vo.OrgRoleGroupVO</class-b>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <field>
+            <a>groupName</a>
+            <b>name</b>
+        </field>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>teamId</a>
+            <b>teamId</b>
+        </field>
+        <field custom-converter="com.zhipin.organization.common.BooleanCustomConverter">
+            <a>isDefault</a>
+            <b>isDefault</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>com.zhipin.organization.model.OrgRoleDO</class-a>
+        <class-b>com.zhipin.organization.vo.OrgRoleVO</class-b>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>groupId</a>
+            <b>groupId</b>
+        </field>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>teamId</a>
+            <b>teamId</b>
+        </field>
+        <field custom-converter="com.zhipin.organization.common.BooleanCustomConverter">
+            <a>isDefault</a>
+            <b>isDefault</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>com.zhipin.organization.model.OrgSceneToReportDO</class-a>
+        <class-b>com.zhipin.organization.vo.OrgSceneToReportVO</class-b>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>reportToId</a>
+            <b>reportToId</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>com.zhipin.organization.model.OrgStaffDO</class-a>
+        <class-b>com.zhipin.organization.vo.OrgStaffVO</class-b>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>teamId</a>
+            <b>teamId</b>
+        </field>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>classId</a>
+            <b>classId</b>
+        </field>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>reportStaffId</a>
+            <b>reportStaffId</b>
+        </field>
+        <field>
+            <a>entryDate</a>
+            <b date-format="yyyy-MM-dd">entryDate</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>com.zhipin.organization.model.OrgPartTimeClassDO</class-a>
+        <class-b>com.zhipin.organization.vo.OrgPartTimeClassVO</class-b>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>teamId</a>
+            <b>teamId</b>
+        </field>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>classId</a>
+            <b>classId</b>
+        </field>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>staffId</a>
+            <b>staffId</b>
+        </field>
+    </mapping>
+
+    <mapping wildcard="true" date-format="yyyy-MM-dd HH:mm">
+        <class-a>com.zhipin.organization.model.OrgStaffDO</class-a>
+        <class-b>com.zhipin.organization.vo.OrgStaffListVO</class-b>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>classId</a>
+            <b>classId</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>com.zhipin.organization.model.base.OrgStaffBaseDO</class-a>
+        <class-b>com.zhipin.organization.vo.base.OrgStaffBaseVO</class-b>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>staffId</a>
+            <b>staffId</b>
+        </field>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>classId</a>
+            <b>classId</b>
+        </field>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>labelId</a>
+            <b>labelId</b>
+        </field>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>roleId</a>
+            <b>roleId</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>com.zhipin.organization.model.base.OrgClassBaseDO</class-a>
+        <class-b>com.zhipin.organization.vo.base.OrgClassBaseVO</class-b>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>classId</a>
+            <b>classId</b>
+        </field>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>parentClassId</a>
+            <b>parentClassId</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>com.zhipin.organization.model.base.OrgLabelBaseDO</class-a>
+        <class-b>com.zhipin.organization.vo.base.OrgLabelBaseVO</class-b>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>labelId</a>
+            <b>labelId</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>com.zhipin.organization.model.base.OrgRoleBaseDO</class-a>
+        <class-b>com.zhipin.organization.vo.base.OrgRoleBaseVO</class-b>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>roleId</a>
+            <b>roleId</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>com.zhipin.organization.model.OrgExtensionGroupDO</class-a>
+        <class-b>com.zhipin.organization.model.dto.OrgExtensionGroupDTO</class-b>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>teamId</a>
+            <b>teamId</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>com.zhipin.organization.model.OrgExtensionGroupDO</class-a>
+        <class-b>com.zhipin.organization.vo.OrgExtensionGroupVO</class-b>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>id</a>
+            <b>id</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>com.zhipin.organization.model.OrgExtensionFieldDO</class-a>
+        <class-b>com.zhipin.organization.vo.OrgExtensionFieldVO</class-b>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>fieldGroupId</a>
+            <b>fieldGroupId</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>com.zhipin.organization.model.OrgLabelDO</class-a>
+        <class-b>com.zhipin.organization.vo.OrgLabelVO</class-b>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>teamId</a>
+            <b>teamId</b>
+        </field>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>groupId</a>
+            <b>groupId</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>com.zhipin.organization.model.OrgApplyDO</class-a>
+        <class-b>com.zhipin.organization.vo.OrgApplyVO</class-b>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>teamId</a>
+            <b>teamId</b>
+        </field>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>classId</a>
+            <b>classId</b>
+        </field>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>operateUserId</a>
+            <b>operateUserId</b>
+        </field>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>inviteUserId</a>
+            <b>inviteUserId</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>com.zhipin.organization.model.OrgExtensionFieldDO</class-a>
+        <class-b>com.zhipin.organization.model.dto.OrgExtensionFieldDTO</class-b>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>fieldGroupId</a>
+            <b>fieldGroupId</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>com.zhipin.organization.model.OrgClassDO</class-a>
+        <class-b>com.zhipin.organization.dubbo.bo.OrgClassBO</class-b>
+        <field>
+            <a>id</a>
+            <b>classId</b>
+        </field>
+        <field>
+            <a>namePy</a>
+            <b>classNamePy</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>com.zhipin.organization.model.OrgTeamDO</class-a>
+        <class-b>com.zhipin.organization.dubbo.bo.OrgTeamBO</class-b>
+        <field>
+            <a>cnCode</a>
+            <b>name</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>com.zhipin.organization.model.PlatImBotDO</class-a>
+        <class-b>com.zhipin.organization.dubbo.bo.OrgStaffBO</class-b>
+        <field>
+            <a>name</a>
+            <b>staffName</b>
+        </field>
+        <field>
+            <a>namePy</a>
+            <b>staffNamePy</b>
+        </field>
+        <field>
+            <a>botNo</a>
+            <b>staffNo</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>com.zhipin.organization.model.PlatImBotDO</class-a>
+        <class-b>com.zhipin.organization.vo.PlatImBotVO</class-b>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>teamId</a>
+            <b>teamId</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>com.zhipin.organization.model.PlatAuthPartnerDO</class-a>
+        <class-b>com.zhipin.organization.vo.PlatAuthPartnerVO</class-b>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>teamId</a>
+            <b>teamId</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>com.zhipin.organization.model.OrgAppDO</class-a>
+        <class-b>com.zhipin.organization.vo.OrgAppVO</class-b>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>id</a>
+            <b>id</b>
+        </field>
+        <field custom-converter="com.zhipin.organization.common.IdCustomConverter">
+            <a>teamId</a>
+            <b>teamId</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>com.zhipin.organization.model.OrgAppDO</class-a>
+        <class-b>com.zhipin.organization.dubbo.bo.OrgAppBO</class-b>
+    </mapping>
+</mappings>
