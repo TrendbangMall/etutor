@@ -1,10 +1,8 @@
 package com.etutor.service.impl.token;
 
 import com.etutor.dao.TokenDAO;
-import com.etutor.model.dto.UserDTO;
 import com.etutor.model.entity.TokenDO;
 import com.etutor.service.TokenService;
-import com.etutor.utils.JWTUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
