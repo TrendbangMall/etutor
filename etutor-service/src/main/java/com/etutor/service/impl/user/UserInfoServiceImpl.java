@@ -73,8 +73,7 @@ public class UserInfoServiceImpl implements UserInfoService {
     public UserInfoVO getUserInfoByToken(String token) {
         TokenDO tokenDO = tokenService.getToken(token);
         UserInfoDO userInfoDO = userInfoDAO.getUserInfoDOById(tokenDO.getUserId());
-        UserInfoVO userInfoVO = DozerUtils.map(mapper, userInfoDO, UserInfoVO.class);
-        return userInfoVO;
+        return DozerUtils.map(mapper, userInfoDO, UserInfoVO.class);
     }
 
     @Override

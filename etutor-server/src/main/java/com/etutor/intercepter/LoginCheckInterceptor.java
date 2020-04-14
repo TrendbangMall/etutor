@@ -34,6 +34,9 @@ public class LoginCheckInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        if (!(handler instanceof HandlerMethod)) {
+            return true;
+        }
         // token
         String token = request.getHeader(LoginConstant.ETUTOR_TOKEN);
         // 根据注解判断是否需要校验登录状态
