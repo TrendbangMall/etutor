@@ -63,5 +63,24 @@ public class JWTUtil {
 
     }
 
+    public static Integer getSysType(String token) {
+        try {
+            JWTVerifier verifier = JWT.require(Algorithm.HMAC256(TOKEN_SECRET)).withIssuer("auth0").build();
+            DecodedJWT jwt = verifier.verify(token);
+            return jwt.getClaim("SysType").asInt();
+        } catch (Exception e) {
+            throw new RuntimeException("token 不正确!");
+        }
+    }
 
+
+    public static String getCode(String token) {
+        try {
+            JWTVerifier verifier = JWT.require(Algorithm.HMAC256(TOKEN_SECRET)).withIssuer("auth0").build();
+            DecodedJWT jwt = verifier.verify(token);
+            return jwt.getClaim("Code").asString();
+        } catch (Exception e) {
+            throw new RuntimeException("token 不正确!");
+        }
+    }
 }

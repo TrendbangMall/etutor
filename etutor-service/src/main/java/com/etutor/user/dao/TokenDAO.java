@@ -1,4 +1,4 @@
-package com.etutor.dao;
+package com.etutor.user.dao;
 
 import com.etutor.model.entity.TokenDO;
 import net.paoding.rose.jade.annotation.DAO;

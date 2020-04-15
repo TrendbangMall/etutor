@@ -59,4 +59,6 @@ public class UserInfoVO {
      * 手机号
      */
     private String phone;
+
+    private String token;
 }

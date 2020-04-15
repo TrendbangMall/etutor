@@ -1,6 +1,10 @@
-package com.etutor.service.impl.user;
+package com.etutor.user.service.impl;
 
-import com.etutor.dao.UserInfoDAO;
+import cn.hutool.system.UserInfo;
+import com.etutor.model.entity.wx.WeixinUserDO;
+import com.etutor.service.WxUserService;
+import com.etutor.user.dao.TokenDAO;
+import com.etutor.user.dao.UserInfoDAO;
 import com.etutor.model.dto.UserDTO;
 import com.etutor.model.entity.TokenDO;
 import com.etutor.model.entity.UserInfoDO;
@@ -26,6 +30,9 @@ public class UserInfoServiceImpl implements UserInfoService {
 
     @Autowired
     private TokenService tokenService;
+
+    @Autowired
+    private WxUserService wxUserService;
 
     @Override
     public long insertUser(UserInfoDO userInfoDO) {
@@ -93,4 +100,48 @@ public class UserInfoServiceImpl implements UserInfoService {
         tokenService.addToken(tokenDO);
         return token;
     }
+
+    /**
+     * 其他平台创建token
+     */
+    @Override
+    public String createToken(Long teamId, Long userId, String systemCode, Integer tokenType) {
+        UserDTO userDTO = new UserDTO();
+        userDTO.setCode(systemCode);
+        // 登录   设置token, 保存到数据库
+        String token = JWTUtil.sign(userDTO);
+        TokenDO tokenDO = new TokenDO();
+        tokenDO.setExprTime(new Date(System.currentTimeMillis() + JWTUtil.EXPIRE_TIME));
+        tokenDO.setToken(token);
+        tokenDO.setUserId(userId);
+        tokenDO.setUpdateTime(new Date());
+
+        tokenDO.setAddTime(new Date());
+        tokenService.disableToken(tokenDO);
+        // 重新登录,每次都要将旧的token置为失效, 再新增一条新的数据
+        tokenService.addToken(tokenDO);
+        return token;
+    }
+
+    @Override
+    public UserInfoDO getUserById(long userId) {
+        return userInfoDAO.getUserById(userId);
+    }
+
+    @Override
+    public UserInfoVO getUserInfoBySessionKey(String sessionKey) {
+
+        UserInfoVO userInfo = new UserInfoVO();
+        // 从token中获取 userId, teamId, staffId
+        WeixinUserDO weixinUserDO = wxUserService.getWeixinUserBySession(sessionKey);
+        // 根据 UserId 获取 User信息
+        UserInfoDO userDO = userInfoDAO.getUserById(weixinUserDO.getUserId());
+        if (userDO != null) {
+            userInfo.setPhone(userDO.getPhone());
+            userInfo.setName(userDO.getName());
+            userInfo.setId(userDO.getId());
+        }
+        return userInfo;
+    }
+
 }

@@ -11,6 +11,8 @@ public interface TokenService {
 
     boolean updateToken(TokenDO tokenDO);
 
+    boolean disableToken(TokenDO tokenDO);
+
     TokenDO getToken(String token);
 
     boolean checkToken(String token);

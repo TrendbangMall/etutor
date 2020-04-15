@@ -1,11 +1,13 @@
 package com.etutor.intercepter;
 
 import com.etutor.annotation.LoginCheck;
+import com.etutor.common.CommonConstant;
 import com.etutor.constant.LoginConstant;
 import com.etutor.model.vo.UserInfoVO;
 import com.etutor.response.ResultCode;
 import com.etutor.service.TokenService;
 import com.etutor.service.UserInfoService;
+import com.etutor.service.WxUserService;
 import com.etutor.utils.JWTUtil;
 import com.etutor.utils.JsonUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -31,6 +33,8 @@ public class LoginCheckInterceptor extends HandlerInterceptorAdapter {
     @Autowired
     private TokenService tokenService;
 
+    @Autowired
+    private WxUserService wxUserService;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -51,14 +55,27 @@ public class LoginCheckInterceptor extends HandlerInterceptorAdapter {
             if (!StringUtils.isNotBlank(token)){
                 return generateErrorResponse(response, ResultCode.TOKEN_NULL);
             }
-            // 登录校验
-            if (!(JWTUtil.verify(token) && tokenService.checkToken(token))) {
-                return generateErrorResponse(response, ResultCode.TOKEN_INVALID);
-            }
 
-            // 获取User信息, 放到UserInfo中
-            UserInfoVO userInfo = userService.getUserInfoByToken(token);
-            request.setAttribute(LoginConstant.ETUTOR_USER, userInfo);
+            Integer sysType = JWTUtil.getSysType(token);
+            if (!CommonConstant.TOKEN_WECHAT.equals(sysType)) {
+                // 登录校验
+                if (!(JWTUtil.verify(token) && tokenService.checkToken(token))) {
+                    return generateErrorResponse(response, ResultCode.TOKEN_INVALID);
+                }
+                // 获取User信息, 放到UserInfo中
+                UserInfoVO userInfo = userService.getUserInfoByToken(token);
+                request.setAttribute(LoginConstant.ETUTOR_USER, userInfo);
+            } else {
+                // sessionToken 校验
+                String sessionKey = JWTUtil.getCode(token);
+                if (!wxUserService.checkSessionKey(sessionKey)) {
+                    return generateErrorResponse(response, ResultCode.TOKEN_INVALID);
+                }
+                // 获取User信息, 放到UserInfo中
+                UserInfoVO userInfo = userService.getUserInfoBySessionKey(sessionKey);
+                userInfo.setToken(token);
+                request.setAttribute(LoginConstant.ETUTOR_USER, userInfo);
+            }
         }
         return super.preHandle(request, response, handler);
     }

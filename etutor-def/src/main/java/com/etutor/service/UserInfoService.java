@@ -45,4 +45,14 @@ public interface UserInfoService {
      * @return 结果
      */
     String createToken(long userId);
+
+    /**
+     * 其他平台, 创建token
+     * @return 结果
+     */
+    String createToken(Long teamId, Long userId, String systemCode, Integer tokenType);
+
+    UserInfoDO getUserById(long userId);
+
+    UserInfoVO getUserInfoBySessionKey(String sessionKey);
 }

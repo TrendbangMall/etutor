@@ -1,4 +1,4 @@
-package com.etutor.dao;
+package com.etutor.user.dao;
 
 import com.etutor.model.entity.UserInfoDO;
 import net.paoding.rose.jade.annotation.DAO;
@@ -41,4 +41,9 @@ public interface UserInfoDAO {
 
     @SQL("select " + ALL_COLUMNS + " from " + TABLE_NAME + " where phone = :1")
     UserInfoDO getUserByPhone(String phone);
+    /**
+     * 通过主键获取用户信息
+     */
+    @SQL(" select " + ALL_COLUMNS + " from " + TABLE_NAME + " where id=:1 ")
+    UserInfoDO getUserById(long id);
 }
