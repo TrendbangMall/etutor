@@ -1,6 +1,6 @@
 server:
   port: 8010
-    # tomcat设置
+  # tomcat设置
   tomcat:
     # 开启日志访问
     max-threads: 1000
@@ -23,3 +23,18 @@ spring:
     username: dbuser
     password: boom123321
     type: com.alibaba.druid.pool.DruidDataSource
+
+  redis:
+    #配置单机版 Redis
+    host: localhost
+    port: 6379
+    password:
+
+    #配置高可用集群
+    sentinel:
+      master: mymaster
+      nodes: sentinelOS1:26379,sentinelOS2:26379,sentinelOS3:26379
+
+  cache:
+    type: redis #指定缓存类型
+    cache-names: realTimeCache #指定缓存命名空间
