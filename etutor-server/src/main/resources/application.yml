@@ -31,9 +31,9 @@ spring:
     password:
 
     #配置高可用集群
-    sentinel:
-      master: mymaster
-      nodes: sentinelOS1:26379,sentinelOS2:26379,sentinelOS3:26379
+#    sentinel:
+#      master: mymaster
+#      nodes: sentinelOS1:26379,sentinelOS2:26379,sentinelOS3:26379
 
   cache:
     type: redis #指定缓存类型
