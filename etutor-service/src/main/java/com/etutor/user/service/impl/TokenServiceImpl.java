@@ -20,6 +20,11 @@ public class TokenServiceImpl implements TokenService {
     }
 
     @Override
+    public boolean disableToken(TokenDO tokenDO) {
+        return tokenDAO.disableToken(tokenDO) > 0;
+    }
+
+    @Override
     public TokenDO getToken(String token) {
         return tokenDAO.getTokenByToken(token);
     }

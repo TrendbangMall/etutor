@@ -1,6 +1,5 @@
 package com.etutor.model.entity.wx;
 
-import com.zhipin.organization.wechat.WxGsonBuilder;
 import lombok.Data;
 
 import java.io.Serializable;

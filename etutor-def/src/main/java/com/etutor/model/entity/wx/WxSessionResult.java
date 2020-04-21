@@ -1,7 +1,6 @@
 package com.etutor.model.entity.wx;
 
 import com.google.gson.annotations.SerializedName;
-import com.zhipin.organization.wechat.WxGsonBuilder;
 import lombok.Data;
 
 /**

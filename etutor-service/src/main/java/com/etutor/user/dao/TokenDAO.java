@@ -62,6 +62,9 @@ public interface TokenDAO {
     @SQL(" update " + TABLE_NAME + " set status = -1, update_time = now() where user_id = :1.userId ")
     int updateToken(TokenDO tokenDO);
 
+    @SQL(" update " + TABLE_NAME + " set status = -1, update_time = now() where user_id = :1.userId and sys_type = :1.sysType")
+    int disableToken(TokenDO tokenDO);
+
     @SQL(" update " + TABLE_NAME + " set team_id = :2, staff_id = :3, update_time = now() where token = :1 ")
     int updateToken(String token, long teamId, long staffId);
 
