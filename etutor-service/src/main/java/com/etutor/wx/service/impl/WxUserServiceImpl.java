@@ -22,14 +22,16 @@ import java.util.Map;
 @Service
 public class WxUserServiceImpl implements WxUserService {
 
-    @Value("${wx.appid}")
-    private String appid;
+    /**
+     * wx.appid=wx2b83354dcd945f86
+     * wx.secret: f554555a6cbc562cc00f3567b3540a21
+     * wx.code2sessionUrl: http
+     */
+    private String appid = "wx2b83354dcd945f86";
 
-    @Value("${wx.secret}")
-    private String secret;
+    private String secret = "f554555a6cbc562cc00f3567b3540a21";
 
-    @Value("${wx.code2sessionUrl}")
-    private String code2sessionUrl;
+    private String code2sessionUrl = "";
 
     @Autowired
     private UserInfoService userService;
