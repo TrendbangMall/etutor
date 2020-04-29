@@ -41,5 +41,9 @@ public class TokenDO {
      * 状态
      */
     private int status;
+    /**
+     * 平台类别: 0 - Boss平台, 1 - 微信平台
+     */
+    private Integer sysType;
 
 }

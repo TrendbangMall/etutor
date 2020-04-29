@@ -42,11 +42,6 @@ public class TokenServiceImpl implements TokenService {
     }
 
     @Override
-    public boolean updateToken(String token, Long teamId, Long staffId) {
-        return tokenDAO.updateToken(token, teamId, staffId) > 0;
-    }
-
-    @Override
     public boolean addToken(TokenDO tokenDO) {
         return tokenDAO.insertToken(tokenDO) > 0;
     }

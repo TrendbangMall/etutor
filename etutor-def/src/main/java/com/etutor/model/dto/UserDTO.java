@@ -17,13 +17,26 @@ public class UserDTO{
      */
     private String name;
     /**
+     * 密码
+     */
+    private String password;
+    /**
+     * 团队id
+     */
+    private Long teamId;
+    /**
      * 用户Id
      */
     private Long userId;
     /**
-     * 验证码
+     * 码
      */
     private String code;
+    /**
+     * 平台
+     */
+    private Integer sysType;
+
 
 
 }

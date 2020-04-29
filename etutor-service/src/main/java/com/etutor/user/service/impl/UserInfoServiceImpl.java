@@ -1,16 +1,14 @@
 package com.etutor.user.service.impl;
 
-import cn.hutool.system.UserInfo;
-import com.etutor.model.entity.wx.WeixinUserDO;
-import com.etutor.service.WxUserService;
-import com.etutor.user.dao.TokenDAO;
-import com.etutor.user.dao.UserInfoDAO;
 import com.etutor.model.dto.UserDTO;
 import com.etutor.model.entity.TokenDO;
 import com.etutor.model.entity.UserInfoDO;
+import com.etutor.model.entity.wx.WeixinUserDO;
 import com.etutor.model.vo.UserInfoVO;
 import com.etutor.service.TokenService;
 import com.etutor.service.UserInfoService;
+import com.etutor.service.WxUserService;
+import com.etutor.user.dao.UserInfoDAO;
 import com.etutor.utils.DozerUtils;
 import com.etutor.utils.JWTUtil;
 import com.github.dozermapper.core.Mapper;
@@ -107,7 +105,9 @@ public class UserInfoServiceImpl implements UserInfoService {
     @Override
     public String createToken(Long teamId, Long userId, String systemCode, Integer tokenType) {
         UserDTO userDTO = new UserDTO();
+        userDTO.setTeamId(teamId);
         userDTO.setCode(systemCode);
+        userDTO.setSysType(tokenType);
         // 登录   设置token, 保存到数据库
         String token = JWTUtil.sign(userDTO);
         TokenDO tokenDO = new TokenDO();
@@ -115,7 +115,8 @@ public class UserInfoServiceImpl implements UserInfoService {
         tokenDO.setToken(token);
         tokenDO.setUserId(userId);
         tokenDO.setUpdateTime(new Date());
-
+        // add
+        tokenDO.setSysType(tokenType);
         tokenDO.setAddTime(new Date());
         tokenService.disableToken(tokenDO);
         // 重新登录,每次都要将旧的token置为失效, 再新增一条新的数据

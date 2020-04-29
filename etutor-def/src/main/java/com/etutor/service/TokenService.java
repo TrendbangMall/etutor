@@ -19,6 +19,6 @@ public interface TokenService {
 
     boolean logout(String token);
 
-    boolean updateToken(String token, Long teamId, Long staffId);
+
 
 }

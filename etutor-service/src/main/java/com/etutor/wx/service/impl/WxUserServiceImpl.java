@@ -12,7 +12,6 @@ import com.etutor.wx.dao.WeixinUserDAO;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -31,7 +30,7 @@ public class WxUserServiceImpl implements WxUserService {
 
     private String secret = "f554555a6cbc562cc00f3567b3540a21";
 
-    private String code2sessionUrl = "";
+    private String code2sessionUrl = "https://api.weixin.qq.com/sns/jscode2session";
 
     @Autowired
     private UserInfoService userService;

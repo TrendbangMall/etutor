@@ -10,10 +10,9 @@ public interface TokenDAO {
 
     String TABLE_NAME = " token_record ";
 
-    String ALL_COLUMNS = " id,  token,  user_id,  expr_time,  add_time,  update_time, status ";
+    String ALL_COLUMNS = " id,  token,  user_id,  expr_time, sys_type, add_time,  update_time, status ";
 
-    String INSERT_COLUMNS = " token,  user_id,  expr_time,  add_time,  update_time ";
-
+    String INSERT_COLUMNS = " token,  user_id,  expr_time, sys_type, add_time,  update_time ";
 
     /**
      * 通过token获取
@@ -49,7 +48,8 @@ public interface TokenDAO {
      * @return
      */
     @ReturnGeneratedKeys
-    @SQL("insert into " + TABLE_NAME + " ( " + INSERT_COLUMNS + " ) values (:1.token, :1.userId, :1.exprTime, now(), now())")
+    @SQL("insert into " + TABLE_NAME + " ( " + INSERT_COLUMNS + " ) " +
+            "values (:1.token, :1.userId, :1.exprTime, :1.sysType, now(), now())")
     Long insertToken(TokenDO tokenDO);
 
     /**
@@ -64,9 +64,6 @@ public interface TokenDAO {
 
     @SQL(" update " + TABLE_NAME + " set status = -1, update_time = now() where user_id = :1.userId and sys_type = :1.sysType")
     int disableToken(TokenDO tokenDO);
-
-    @SQL(" update " + TABLE_NAME + " set team_id = :2, staff_id = :3, update_time = now() where token = :1 ")
-    int updateToken(String token, long teamId, long staffId);
 
     @SQL(" update " + TABLE_NAME + " set status = -1, update_time = now() where token = :1")
     int logout(String token);
