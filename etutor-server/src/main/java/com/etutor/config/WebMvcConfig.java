@@ -19,14 +19,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(accessLoginCheckInterceptor())
-                .addPathPatterns("/**")
-                .excludePathPatterns("/swagger**", "/webjars/springfox-swagger-ui/**");
-//        registry.addInterceptor(accessLoginCheckInterceptor())
-//                .addPathPatterns("/**")
-//                .excludePathPatterns("/index.html", "/", "/user/login", "/asserts/**", "/webjars/bootstrap/**");
-
-        // ResourceHttpRequestHandler ["classpath:/META-INF/resources/", "classpath:/resources/", "classpath:/static/", "classpath:/public/", "/"]
+        registry.addInterceptor(accessLoginCheckInterceptor()).addPathPatterns("/wapi/**", "/wxapi/**");
     }
 
     @Bean

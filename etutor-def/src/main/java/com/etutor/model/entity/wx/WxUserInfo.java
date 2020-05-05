@@ -25,8 +25,7 @@ public class WxUserInfo implements Serializable {
     private Watermark watermark;
 
     public static WxUserInfo fromJson(String json) {
-//        return WxGsonBuilder.create().fromJson(json, WxUserInfo.class);
-        return null;
+        return WxGsonBuilder.create().fromJson(json, WxUserInfo.class);
     }
 
     @Data

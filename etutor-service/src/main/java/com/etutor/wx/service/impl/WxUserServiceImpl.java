@@ -45,13 +45,15 @@ public class WxUserServiceImpl implements WxUserService {
         WeixinUserDO checkDo = weixinUserDAO.getUserByOpenId(sessionResult.getOpenid());
         // 未注册过
         if (checkDo == null) {
-            // 只有在创建团队的时候才创建User; 这里只创建WeixinUser
+
+
             WeixinUserDO weixinUserDO = new WeixinUserDO();
             setWeixinUser(weixinUserDO, sessionResult);
             weixinUserDAO.addUser(weixinUserDO);
             String sessionKey = sessionResult.getSessionKey();
             if (checkSessionkey(sessionKey)) {
                 String token = userService.createToken(-1L, -1L, sessionKey, CommonConstant.TOKEN_WECHAT);
+                // 创建用户
                 weixinUserDO.setToken(token);
                 return weixinUserDO;
             }
